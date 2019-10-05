@@ -28,10 +28,10 @@ a img {
   width: 200px;
   height: 190px;
   display: inline-block;
-  vertical-align: top;
+  /* vertical-align: top;
   float: left;
   margin-right: 25px;
-  background-color: #EEE;
+  background-color: #EEE; */
 }
 .caption {
   font-size: 0.7em;
