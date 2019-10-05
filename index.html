@@ -135,17 +135,33 @@ $(function(){
       
     </div>
     
-    <div style="visibility: hidden">
-      <img src="paddle.jpg">
-      <img src="border1.jpg">
-      <img src="nowalls.jpg">
-      <img src="horsies.JPG">
-      <img src="fencehigh.JPG">
-      <img src="fencehigh2.JPG">
-      <img src="corner1.JPG">
-      <img src="window.JPG">
-      <img src="westworld.JPG">
-      <img src="tile.jpg">
+
+    <div class="hidden">
+      <script type="text/javascript">
+        <!--//--><![CDATA[//><!--
+          var images = new Array()
+          function preload() {
+            for (i = 0; i < preload.arguments.length; i++) {
+              images[i] = new Image()
+              images[i].src = preload.arguments[i]
+            }
+          }
+          preload(
+            "https://mytj.pics/images/paddle.jpg",
+            "https://mytj.pics/images/border1.jpg",
+            "https://mytj.pics/images/nowalls.jpg",
+            "https://mytj.pics/images/horsies.JPG",
+            "https://mytj.pics/images/fencehigh.JPG",
+            "https://mytj.pics/images/fencehigh2.JPG",
+            "https://mytj.pics/images/corner1.JPG",
+            "https://mytj.pics/images/window.JPG",
+            "https://mytj.pics/images/drinkguy.JPG",
+            "https://mytj.pics/images/drinkguy2.JPG",
+            "https://mytj.pics/images/westworld.JPG",
+            "https://mytj.pics/images/tile.jpg"
+          )
+        //--><!]]>
+      </script>
     </div>
 
     </body>
