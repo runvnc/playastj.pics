@@ -58,8 +58,13 @@ $(function(){
     // Notice the "slide" argument:
     .bind("startOfSlide", function(event, slide) { 
       // set and show caption
-      $('#fs-caption span').text(slide.title);
-      $('#fs-caption').show();
+      if (slide.title && slide.title.length) {
+        $('#fs-caption span').text(slide.title);
+        $('#fs-caption').show();
+      } else {
+        $('#fs-caption').hide();
+      }
+
     })
     // before a slide is hidden this is called:
     .bind("endOfSlide", function(event, slide) { 
