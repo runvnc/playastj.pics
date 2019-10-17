@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My TJ Pics</title>
+    <link href="fullscreenstyle.css" type="text/css" rel="stylesheet"></link>
+    <link href="pagestyle.css" type="text/css" rel="stylesheet"></link>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="jquery.fullscreenslides.min.js"></script>
+    <style>
+      .image { 
+        margin: 20px;
+      }
+    </style>
+    <script id="sample">
+$(function(){
+  // initialize the slideshow
+  $('.image img').fullscreenslides();
+  
+  // All events are bound to this container element
+  var $container = $('#fullscreenSlideshowContainer');
+  
+  $container
+    //This is triggered once:
+    .bind("init", function() { 
+
+      // The slideshow does not provide its own UI, so add your own
+      // check the fullscreenstyle.css for corresponding styles
+      $container
+        .append('<div class="ui" id="fs-close">&times;</div>')
+        .append('<div class="ui" id="fs-loader">Loading...</div>')
+        .append('<div class="ui" id="fs-prev">&lt;</div>')
+        .append('<div class="ui" id="fs-next">&gt;</div>')
+        .append('<div class="ui" id="fs-caption"><span></span></div>');
+      
+      // Bind to the ui elements and trigger slideshow events
+      $('#fs-prev').click(function(){
+        // You can trigger the transition to the previous slide
+        $container.trigger("prevSlide");
+      });
+      $('#fs-next').click(function(){
+        // You can trigger the transition to the next slide
+        $container.trigger("nextSlide");
+      });
+      $('#fs-close').click(function(){
+        // You can close the slide show like this:
+        $container.trigger("close");
+      });
+      
+    })
+    // When a slide starts to load this is called
+    .bind("startLoading", function() { 
+      // show spinner
+      $('#fs-loader').show();
+    })
+    // When a slide stops to load this is called:
+    .bind("stopLoading", function() { 
+      // hide spinner
+      $('#fs-loader').hide();
+    })
+    // When a slide is shown this is called.
+    // The "loading" events are triggered only once per slide.
+    // The "start" and "end" events are called every time.
+    // Notice the "slide" argument:
+    .bind("startOfSlide", function(event, slide) { 
+      // set and show caption
+      if (slide.title && slide.title.length) {
+        $('#fs-caption span').text(slide.title);
+        $('#fs-caption').show();
+      } else {
+        $('#fs-caption').hide();
+      }
+
+    })
+    // before a slide is hidden this is called:
+    .bind("endOfSlide", function(event, slide) { 
+      $('#fs-caption').hide();
+    });
+});
+    </script>
+  </head>
+  <body>
+    
+    <div class="wrapper">
+      
+      <h1>My TJ Pics</h1>
+      <h2>Please view on a large screen.</h2>
+      <h2>Click image to view (left/right arrow = next/previous)</h2>
+      
+      <div class="image">
+        <a rel="gallery" title="" href="images/paddle.jpg">
+          <img src="thumbs/paddle.jpg">
+        </a>
+      </div>
+
+      <div class="image">
+        <a rel="gallery" title="" href="images/border1.jpg">
+          <img src="thumbs/border1.jpg">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/nowalls.jpg">
+          <img src="thumbs/nowalls.jpg">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="Horsies ---------------------------------->" href="images/horsiesx2.png">
+          <img src="thumbs/horsiesx2.png">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/fencehigh.JPG">
+          <img src="thumbs/fencehigh.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/fencehigh2.JPG">
+          <img src="thumbs/fencehigh2.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/corner1.JPG">
+          <img src="thumbs/corner1.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/window.JPG">
+          <img src="thumbs/window.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/drinkguy.JPG">
+          <img src="thumbs/drinkguy.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/drinkguy21.JPG">
+          <img src="thumbs/drinkguy21.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/westworld.JPG">
+          <img src="thumbs/westworld.JPG">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/tile.jpg">
+          <img src="thumbs/tile.jpg">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/bird2.jpg">
+          <img src="thumbs/bird2.jpg">
+        </a>
+      </div>
+      <div class="image">
+        <a rel="gallery" title="" href="images/beach1.jpg">
+          <img src="thumbs/beach1.jpg">
+        </a>
+      </div>
+      
+    </div>
+     
+
+    <div class="hidden">
+      <script type="text/javascript">
+        <!--//--><![CDATA[//><!--
+          var images = new Array()
+          function preload() {
+            for (i = 0; i < preload.arguments.length; i++) {
+              images[i] = new Image()
+              images[i].src = preload.arguments[i]
+            }
+          }
+          preload(
+            "https://mytj.pics/images/paddle.jpg",
+            "https://mytj.pics/images/border1.jpg",
+            "https://mytj.pics/images/nowalls.jpg",
+            "https://mytj.pics/images/horsiesx2.png",
+            "https://mytj.pics/images/fencehigh.JPG",
+            "https://mytj.pics/images/fencehigh2.JPG",
+            "https://mytj.pics/images/corner1.JPG",
+            "https://mytj.pics/images/window.JPG",
+            "https://mytj.pics/images/drinkguy.JPG",
+            "https://mytj.pics/images/drinkguy21.JPG",
+            "https://mytj.pics/images/westworld.JPG",
+            "https://mytj.pics/images/tile.jpg",
+            "https://mytj.pics/images/bird2.JPG",
+            "https://mytj.pics/images/beach1.JPG"
+          )
+        //--><!]]>
+      </script>
+    </div>
+
+    </body>
+</html>
