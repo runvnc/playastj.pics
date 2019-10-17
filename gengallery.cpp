@@ -48,6 +48,7 @@ int main() {
     if (i >0 ) cout << ",\n";
     cout << "{ src: 'https://mytj.pics/images/";
     cout << fname << "', w: " << dim[0] << ", h: " << dim[1] << "}";
+    system(("mogrify -auto-orient -strip -interlace Plane -gaussian-blur 0.05 -quality 95% images/" + fname).c_str());
     cout << std::flush;
   }
 
