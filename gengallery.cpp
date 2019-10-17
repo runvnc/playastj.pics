@@ -41,6 +41,7 @@ int main() {
   for (int i=0; i<imgs.size(); i++) {
     string fname = imgs[i].name;
     if (fname.size() < 3) continue;
+    system(("convert -auto-orient -strip -interlace Plane -gaussian-blur 0.05 -quality 95% originalimages/" + fname + " images/"+fname).c_str());
     system(("identify images/" + fname + " > info").c_str());
     string info = slurp("info");
     vector<string> parts = split(info, " ");
@@ -48,7 +49,6 @@ int main() {
     if (i >0 ) cout << ",\n";
     cout << "{ src: 'https://mytj.pics/images/";
     cout << fname << "', w: " << dim[0] << ", h: " << dim[1] << "}";
-    system(("mogrify -auto-orient -strip -interlace Plane -gaussian-blur 0.05 -quality 95% images/" + fname).c_str());
     cout << std::flush;
   }
 
