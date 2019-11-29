@@ -37,11 +37,12 @@ std::string slurp(std::string fname) {
 }
 
 int main() {
-  vector<fileinfo> imgs = dirlist("images/*");
+  vector<fileinfo> imgs = dirlist("../originalimages/*");
+  cout << "Found " << imgs.size() << " images\n";
   for (int i=0; i<imgs.size(); i++) {
     string fname = imgs[i].name;
-    if (fname.size() < 3) continue;
-    system(("convert -auto-orient -strip -interlace Plane -gaussian-blur 0.05 -quality 95% originalimages/" + fname + " images/"+fname).c_str());
+    if (fname.size() < 3 || imgs[i].isdir) continue;
+    system(("convert -auto-orient -strip -interlace Plane -gaussian-blur 0.05 -quality 95% ../originalimages/" + fname + " images/"+fname).c_str());
     system(("identify images/" + fname + " > info").c_str());
     string info = slurp("info");
     vector<string> parts = split(info, " ");
